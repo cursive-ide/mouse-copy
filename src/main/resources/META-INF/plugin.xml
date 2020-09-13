@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>org.example.mouse-copy</id>
+    <name>Mouse Copy</name>
+    <vendor email="cursive@cursive-ide.com" url="https://ideogram.co.nz">Ideogram</vendor>
+
+    <description><![CDATA[
+    Simple plugin implementing mouse copy for braced forms, as described here: https://github.com/vsedach/mouse-copy.
+    Generalised to support any language in IntelliJ supporting braced forms (all of them, basically).
+]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <backgroundPostStartupActivity implementation="mouse.CopyStartupActivity"/>
+        <projectService serviceImplementation="mouse.DisposableService"/>
+    </extensions>
+
+    <actions>
+        <action id="MouseCopy" class="mouse.Copy" text="Mouse Copy"/>
+    </actions>
+</idea-plugin>
