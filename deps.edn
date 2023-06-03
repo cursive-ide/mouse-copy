@@ -1,0 +1,31 @@
+{:paths            ["src/kotlin"]
+ :deps             {}
+
+ ; This is the version of IntelliJ that will be downloaded
+ ; This can differ from :platform-version, e.g. when using an EAP version of the platform
+ :idea-version     "2023.1"
+
+ ; This is the actual plugin version
+ :plugin-version   "0.0.1"
+
+ ; This is used in the full plugin version, e.g. 2023.1
+ :platform-version "2023.1"
+
+ :aliases          {:build      {:deps       {io.github.clojure/tools.build        {:mvn/version "0.9.4"}
+                                              org.jetbrains.kotlin/kotlin-compiler {:mvn/version "1.8.10"}}
+                                 :ns-default build}
+
+                    :ensure-sdk {:deps       {babashka/fs          {:mvn/version "0.1.0"}
+                                              babashka/curl        {:git/url "https://github.com/babashka/babashka.curl"
+                                                                    :git/sha "2187f908c033da45978512979c53bb53321120ce"}
+                                              borkdude/rewrite-edn {:git/url "https://github.com/borkdude/rewrite-edn"
+                                                                    :git/sha "97b6493a7977c7130c3d66cd14fe6371f0537e6c"}}
+                                 :ns-default ensure-sdk}
+
+                    :no-clojure {:classpath-overrides {org.clojure/clojure ""
+                                                       org.clojure/core.specs.alpha ""
+                                                       org.clojure/spec.alpha ""}}
+
+                    :sdk        {:extra-deps {intellij/sdk {:local/root "sdks/2023.1"}}}
+
+                    :ide        {:extra-deps {intellij/sdk$sources {:local/root "sdks/ideaIC-2023.1-sources.jar"}}}}}

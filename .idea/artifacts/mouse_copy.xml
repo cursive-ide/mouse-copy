@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact name="mouse-copy">
+    <output-path>$PROJECT_DIR$/../cursive/sandbox/</output-path>
+    <root id="root">
+      <element id="directory" name="plugins">
+        <element id="directory" name="mouse-copy">
+          <element id="directory" name="lib">
+            <element id="archive" name="mouse-copy.jar">
+              <element id="module-output" name="mouse-copy" />
+            </element>
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

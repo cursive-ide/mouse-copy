@@ -1,3 +1,13 @@
 # Project exclude paths
-/.gradle/
+/.idea/workspace.xml
+/.idea/replstate.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/dictionaries
+/.idea/libraries
+/.idea/gradle_extensions.xml
+
+/sdks/
 /build/
+/sandbox/
+/.cpcache
+/out

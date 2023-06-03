@@ -16,6 +16,7 @@ import com.intellij.openapi.editor.ex.EditorEx
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.keymap.KeymapManager
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.startup.ProjectActivity
 import com.intellij.openapi.startup.StartupActivity
 import com.intellij.openapi.util.TextRange
 import com.intellij.util.ui.UIUtil
@@ -92,7 +93,7 @@ class Copy : AnAction() {
   }
 }
 
-class CopyStartupActivity : StartupActivity {
+class CopyStartupActivity : ProjectActivity {
   // This is all very low-level, and is required to get the mouse events before
   // the editor has a chance to capture them e.g. to move the caret on a click.
   private val presentationFactory = PresentationFactory()
@@ -160,7 +161,7 @@ class CopyStartupActivity : StartupActivity {
     return false
   }
 
-  override fun runActivity(project: Project) {
+  override suspend fun execute(project: Project) {
     IdeEventQueue.getInstance().addDispatcher(
       ::dispatcher, DisposableService.getInstance(project)
     )
